@@ -1,0 +1,5 @@
+[user]
+	email = dkastner@gmail.com
+	name = Derek Kastner
+[core]
+	excludesfile = /Users/dkastner/.gitignore
