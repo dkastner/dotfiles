@@ -39,6 +39,12 @@ map <silent> <LocalLeader>nh :nohls<CR>
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
+" more shortcuts
+map <D-s> :w<CR>
+map <D-w> :q<CR>
+map <D-}> :tabnext<CR>
+map <D-{> :tabprev<CR>
+
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
