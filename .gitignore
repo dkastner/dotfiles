@@ -2,3 +2,44 @@
 *.swo
 *.gem
 .DS_Store
+
+.CFUserTextEncoding
+.bash_history
+.cpan
+.gitk
+.irb_history
+.lesshst
+.mysql_history
+.ri
+.ruby_inline
+.rvm
+.sqlite_history
+.ssh/authorized_keys
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/known_hosts
+.subversion
+Desktop
+Documents
+Downloads
+Library/Application Support/Apple
+Library/Application Support/Front Row
+Library/Application Support/Microsoft/Silverlight
+Library/Application Support/Quicksilver
+Library/Application Support/SyncServices
+Library/Caches
+Library/Calendars
+Library/Google
+Library/Mail
+Library/Mail Downloads
+Library/Logs
+Library/Preferences/ByHost
+Library/Preferences/Macromedia
+Library/Preferences/NeoOffice-3.0
+Library/PubSub
+Library/Safari
+Movies
+Music
+Pictures
+Public
+Sites
