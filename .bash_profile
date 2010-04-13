@@ -25,3 +25,7 @@ function rakedb() {
   rake db:migrate
   rake db:migrate RAILS_ENV=test
 }
+
+function cuke() {
+  cucumber --tags @dev
+}
