@@ -14,3 +14,14 @@ export PATH=$PATH:/usr/local/mysql/bin
 function gemdir () {
   gem env gemdir;
 }
+
+function gpr () {
+  remote=${1:-"origin"}
+  branch=${2:-"master"}
+  git pull --rebase $remote $branch
+}
+
+function rakedb() {
+  rake db:migrate
+  rake db:migrate RAILS_ENV=test
+}
