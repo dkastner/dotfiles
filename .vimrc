@@ -23,6 +23,8 @@ set softtabstop=2
 
 set clipboard=unnamed
 
+set spell
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 "Invisible character colors
@@ -44,6 +46,8 @@ map <D-s> :w<CR>
 map <D-w> :q<CR>
 map <D-}> :tabnext<CR>
 map <D-{> :tabprev<CR>
+map <D-/> :s/^/#/<CR>
+map <D-'> :s/^#//<CR>
 
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
