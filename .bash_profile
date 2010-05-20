@@ -8,7 +8,7 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 export PROMPT_COMMAND='history -a'
 export HISTIGNORE="sudoh"
-export PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin
 
 # git
 #####
@@ -56,6 +56,15 @@ function hagpull() {
   git pull
   cd ~/hagar1
   git pull
+}
+
+# rails
+#######
+
+function generate_migration() {
+  script/generate migration $1 > /tmp/migration_output
+  cat /tmp/migration_output | grep create | awk '{ print $2 }' | pbcopy
+  cat /tmp/migration_output
 }
 
 
