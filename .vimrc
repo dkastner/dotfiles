@@ -14,6 +14,7 @@ if (has('gui_running'))
   set columns=120
   set lines=70
   set number
+  set listchars=tab:▸\ ,eol:¬
 endif
 
 set tabstop=2
@@ -26,7 +27,6 @@ set clipboard=unnamed
 set spell
 
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
 "Invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
@@ -56,3 +56,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
+
+function MyFunc()
+  syntax clear
+endfunction
