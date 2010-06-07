@@ -2,6 +2,7 @@
 *.swo
 *.gem
 .DS_Store
+.sqlite3.db
 
 .CFUserTextEncoding
 .bash_history
