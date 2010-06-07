@@ -3,6 +3,7 @@
 *.gem
 .DS_Store
 .sqlite3.db
+.netrwhist
 
 .CFUserTextEncoding
 .bash_history
