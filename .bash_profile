@@ -19,8 +19,20 @@ function gpr () {
   git pull --rebase $remote $branch
 }
 
+function grcontinue () {
+  git rebase --continue
+}
+
+function grskip () {
+  git rebase --skip
+}
+
 function gpom () {
   git push origin master
+}
+
+function gphm () {
+  git push heroku master
 }
 
 
