@@ -5,6 +5,8 @@
 *.rbc
 Gemfile.lock
 .bundle
+.sqlite3.db
+.netrwhist
 
 .CFUserTextEncoding
 .bash_history

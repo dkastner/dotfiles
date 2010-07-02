@@ -67,12 +67,3 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
-
-"specky commands
-let g:speckyBannerKey = "<C-S>b"
-let g:speckyRunRdocKey = "<C-S>r"
-let g:speckySpecSwitcherKey = "<C-S>x"
-let g:speckyRunSpecKey = "<C-S>s"
-let g:speckyRunSpecCmd = "spec -fs -r loadpath.rb"
-let g:speckyRunRdocCmd = "fri -L -f plain"
-let g:speckyWindowType = 2
