@@ -74,3 +74,16 @@ function generate_migration() {
 function delline () {
   sed -i '' "$2d" $1
 }
+
+function search_and_replace() {
+  ext=$1
+  search=$2
+  replace=$3
+  for file in $(find . -type f -name "*$ext")
+  do
+    FILE=`echo $file | sed "s/\.//"`
+    FILE="$PWD$FILE"
+    sed -e "s/$2/$3/g" -i .sed $FILE
+    rm -f $FILE.sed
+  done
+}
