@@ -2,6 +2,9 @@
 *.swo
 *.gem
 .DS_Store
+*.rbc
+Gemfile.lock
+.bundle
 
 .CFUserTextEncoding
 .bash_history
