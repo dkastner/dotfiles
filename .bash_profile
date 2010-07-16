@@ -1,4 +1,3 @@
-
 PATH=~/bin:$PATH
 
 # rvm-install added line:
@@ -95,7 +94,7 @@ function search_and_replace() {
   do
     FILE=`echo $file | sed "s/\.//"`
     FILE="$PWD$FILE"
-    sed -e "s/$2/$3/g" -i .sed $FILE
+    sed -e "s/$search/$replace/g" -i .sed $FILE
     rm -f $FILE.sed
   done
 }
