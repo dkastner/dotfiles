@@ -2,6 +2,8 @@ syntax on
 filetype plugin indent on
 colorscheme darkblue 
 
+set noswapfile
+
 au BufNewFile,BufRead *.clj set ft=clojure
 au BufNewFile *_spec.rb 0r ~/.vim/skeletons/rspec.rb
 au BufNewFile,BufRead Gemfile set ft=ruby
