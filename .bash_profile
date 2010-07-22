@@ -125,3 +125,8 @@ function search_and_replace() {
     rm -f $FILE.sed
   done
 }
+
+function clean() {
+  ext=${1:-"swp"}
+  find . -name *.$ext | xargs rm -f
+}
