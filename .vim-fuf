@@ -1,0 +1,4 @@
+VERSION	300
+dir	stats	{'word': 'app/models/fund', 'pattern': 'app/models/fund'}
+dir	stats	{'word': 'app/models/', 'pattern': 'app/mo'}
+dir	stats	{'word': 'app/', 'pattern': 'ap'}
