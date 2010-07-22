@@ -58,6 +58,7 @@ map <D-}> :tabnext<CR>
 map <D-{> :tabprev<CR>
 map <D-/> :s/^/#/<CR>
 map <D-'> :s/^#//<CR>
+map <S-k> k
 
 " fuf shortcuts
 map <D-T> :FuzzyFinderTextMate<CR>
