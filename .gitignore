@@ -27,24 +27,11 @@ Gemfile.lock
 Desktop
 Documents
 Downloads
-Library/Application Support/Apple
-Library/Application Support/Front Row
-Library/Application Support/Microsoft/Silverlight
-Library/Application Support/Quicksilver
-Library/Application Support/SyncServices
-Library/Caches
-Library/Calendars
-Library/Google
-Library/Mail
-Library/Mail Downloads
-Library/Logs
-Library/Preferences/ByHost
-Library/Preferences/Macromedia
-Library/Preferences/NeoOffice-3.0
-Library/PubSub
-Library/Safari
+Library
 Movies
 Music
 Pictures
 Public
 Sites
+.Trash
+.vagrant
