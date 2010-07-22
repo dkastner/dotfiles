@@ -57,18 +57,6 @@ function sudoh() {
   echo $hist_item | xargs sudo
 }
 
-function hagpull() {
-  set -x
-  cd ~/cm1
-  git pull
-  cd ~/data1
-  git pull
-  cd ~/wlpf1
-  git pull
-  cd ~/hagar1
-  git pull
-}
-
 # rails
 #######
 
