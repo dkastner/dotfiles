@@ -1,1 +1,2 @@
 supertab.vba: call delete('/Users/dkastner/.vim/doc/supertab.txt')|call delete('/Users/dkastner/.vim/plugin/supertab.vim')
+specky.vba: call delete('/Users/dkastner/.vim/syntax/rdoc.vim')|call delete('/Users/dkastner/.vim/syntax/specrun.vim')|call delete('/Users/dkastner/.vim/syntax/rspec.vim')|call delete('/Users/dkastner/.vim/ftdetect/rspec.vim')|call delete('/Users/dkastner/.vim/ftplugin/rspec.vim')|call delete('/Users/dkastner/.vim/doc/specky.txt')|call delete('/Users/dkastner/.vim/plugin/specky.vim')|call delete('/Users/dkastner/.vim/snippets/rspec.snippets')
