@@ -38,6 +38,10 @@ function gphm () {
 # ruby
 ######
 
+function geminstall () {
+  gem install $1 --no-rdoc --no-ri
+}
+
 function gemdir () {
   gem env gemdir;
 }
@@ -55,6 +59,16 @@ function sudoh() {
   hist_item=`tail -n 1 ~/.bash_history` 
   echo "SUDO $hist_item"
   echo $hist_item | xargs sudo
+}
+
+function patch_release() {
+  rake version:bump:patch release
+}
+function minor_release() {
+  rake version:bump:minor release
+}
+function major_release() {
+  rake version:bump:major release
 }
 
 # rails
@@ -117,16 +131,35 @@ function search_and_replace() {
   ext=$1
   search=$2
   replace=$3
-  for file in $(find . -type f -name "*$ext")
+  path=${4:-"."}
+  for file in $(find $path -type f -name "*$ext")
   do
-    FILE=`echo $file | sed "s/\.//"`
-    FILE="$PWD$FILE"
-    sed -e "s/$search/$replace/g" -i .sed $FILE
-    rm -f $FILE.sed
+    echo "sar $file"
+    file=`echo $file | sed "s/\.//"`
+    file="$file"
+    sed -e "s/$search/$replace/g" -i .sed $file
+    rm -f $file.sed
   done
 }
 
 function clean() {
   ext=${1:-"swp"}
   find . -name *.$ext | xargs rm -f
+}
+
+function emitters() {
+  cmd=$1
+  emitters=(automobile bus_trip diet flight fuel_purchase motorcycle pet rail_trip purchase rail_trip residence)
+    
+  if [ "$1" == "release" ]
+  then
+    msg=$2
+    for emitter in emitters
+    do
+      cd "~/$emitter"
+      rake gemspec
+      git commit -am $cmd
+      patch_release
+    done
+  fi
 }
