@@ -154,7 +154,7 @@ function emitters() {
   if [ "$1" == "release" ]
   then
     msg=$2
-    for emitter in emitters
+    for emitter in $emitters
     do
       cd "~/$emitter"
       rake gemspec
