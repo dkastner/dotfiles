@@ -43,6 +43,8 @@ highlight SpecialKey guifg=#4a4a59
 
 autocmd FileType ruby runtime ruby_mappings.vim
 
+let mapleader = ","
+let localleader = ","
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 map <silent> <LocalLeader>nr :NERDTree<CR>
 
@@ -52,16 +54,16 @@ map <silent> <LocalLeader>nh :nohls<CR>
 nmap <leader>l :set list!<CR>
 
 " more shortcuts
-map <D-s> :w<CR>
-map <D-w> :q<CR>
-map <D-}> :tabnext<CR>
-map <D-{> :tabprev<CR>
-map <D-/> :s/^/#/<CR>
-map <D-'> :s/^#//<CR>
 map <S-k> k
 
 " fuf shortcuts
 map <D-T> :FuzzyFinderTextMate<CR>
+map <Leader>w :w<CR>
+map <Leader>q :q<CR>
+map <Leader>. :tabnext<CR>
+map <Leader>, :tabprev<CR>
+map \] :s/^/#/<CR>
+map \[ :s/^#//<CR>
 
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
