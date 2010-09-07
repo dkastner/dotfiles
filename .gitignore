@@ -10,6 +10,7 @@ Gemfile.lock
 
 .CFUserTextEncoding
 .bash_history
+.bundle
 .cpan
 .gitk
 .irb_history
