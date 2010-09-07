@@ -18,20 +18,8 @@ function gpr () {
   git pull --rebase $remote $branch
 }
 
-function grcontinue () {
-  git rebase --continue
-}
-
-function grskip () {
-  git rebase --skip
-}
-
-function gpom () {
-  git push origin master
-}
-
-function gphm () {
-  git push heroku master
+function gpo () {
+  git push origin $1
 }
 
 
@@ -40,35 +28,6 @@ function gphm () {
 
 function geminstall () {
   gem install $1 --no-rdoc --no-ri
-}
-
-function gemdir () {
-  gem env gemdir;
-}
-
-function rakedb() {
-  rake db:migrate
-  rake db:migrate RAILS_ENV=test
-}
-
-function cuke() {
-  cucumber --tags @dev
-}
-
-function sudoh() {
-  hist_item=`tail -n 1 ~/.bash_history` 
-  echo "SUDO $hist_item"
-  echo $hist_item | xargs sudo
-}
-
-function patch_release() {
-  rake version:bump:patch release
-}
-function minor_release() {
-  rake version:bump:minor release
-}
-function major_release() {
-  rake version:bump:major release
 }
 
 # rails
@@ -83,6 +42,12 @@ function generate_migration() {
 
 # misc
 ######
+
+function sudoh() {
+  hist_item=`tail -n 1 ~/.bash_history` 
+  echo "SUDO $hist_item"
+  echo $hist_item | xargs sudo
+}
 
 function mod_devgem() {
   var="LOCAL_`echo $2 | tr 'a-z' 'A-Z'`"
@@ -121,6 +86,10 @@ function devgems () {
   else
     mod_devgem $cmd $2
   fi
+
+  export NOBUNDLE=true
+  rake gemspec
+  unset NOBUNDLE
 }
 
 function delline () {
@@ -149,17 +118,38 @@ function clean() {
 
 function emitters() {
   cmd=$1
-  emitters=(automobile bus_trip diet flight fuel_purchase motorcycle pet rail_trip purchase rail_trip residence)
+  # emitters=(automobile bus_trip diet flight fuel_purchase motorcycle pet rail_trip purchase rail_trip residence)
+  emitters=( diet flight fuel_purchase motorcycle pet rail_trip purchase rail_trip residence )
     
   if [ "$1" == "release" ]
   then
     msg=$2
-    for emitter in $emitters
+    for emitter in ${emitters[@]}
     do
-      cd "~/$emitter"
+      echo "Processing $emitter"
+      cd "/Users/dkastner/$emitter"
       rake gemspec
       git commit -am $cmd
       patch_release
     done
   fi
 }
+
+
+# aliases
+
+## git
+alias grcontinue='git rebase --continue'
+alias grskip='git rebase --skip'
+alias gpom='git push origin master'
+alias gphm='git push heroku master'
+
+## ruby
+alias cuke='cucumber --tags @dev'
+alias gemdir='gem env gemdir'
+alias rakedb='rake db:migrate; rake db:migrate RAILS_ENV=test'
+
+alias patch_release='rake version:bump:patch release'
+alias minor_release='rake version:bump:minor release'
+alias major_release='rake version:bump:major release'
+
