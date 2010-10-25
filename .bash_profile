@@ -8,6 +8,7 @@ shopt -s histappend
 export PROMPT_COMMAND='history -a'
 export HISTIGNORE="sudoh"
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin
+#export GEM_REPO=http://localhost:8808
 
 # git
 #####
@@ -49,51 +50,17 @@ function sudoh() {
   echo $hist_item | xargs sudo
 }
 
-function mod_devgem() {
-  var="LOCAL_`echo $2 | tr 'a-z' 'A-Z'`"
-
-  if [ "$1" == "disable" ]
-  then
-    echo "unset $var"
-    unset $var
-  else
-    dir=${3:-"~/$2"}
-    echo "export $var=$dir"
-    export $var=$dir
-  fi
-}
-
-function devgems () {
-  # Usage: devgems [enable|disable] [gemname]
-  cmd=${1:-"enable"}
-
-  if [ "$1" == "list" ]
-  then
-    env | grep LOCAL
-    return
-  fi
-
-  if [ -z $2 ]
-  then
-    mod_devgem $cmd characterizable
-    mod_devgem $cmd cohort_scope
-    mod_devgem $cmd falls_back_on
-    mod_devgem $cmd leap
-    mod_devgem $cmd loose_tight_dictionary
-    mod_devgem $cmd sniff
-    mod_devgem $cmd data_miner
-    mod_devgem $cmd earth
-  else
-    mod_devgem $cmd $2
-  fi
-
-  export NOBUNDLE=true
-  rake gemspec
-  unset NOBUNDLE
-}
-
 function delline () {
+echo $1
+echo $2
   sed -i '' "$2d" $1
+}
+
+function delline_search () {
+  for line in `ack $1 --noheading`
+  do
+    echo $line | awk 'BEGIN { FS = ":" } ; { print $1 } { print $2 }' | xargs delline
+  done
 }
 
 function search_and_replace() {
@@ -104,9 +71,10 @@ function search_and_replace() {
   for file in $(find $path -type f -name "*$ext")
   do
     echo "sar $file"
+    file_with_dot=$file
     file=`echo $file | sed "s/\.//"`
     file="$file"
-    sed -e "s/$search/$replace/g" -i .sed $file
+    sed -e "s/$search/$replace/g" -i .sed $file_with_dot
     rm -f $file.sed
   done
 }
@@ -153,3 +121,5 @@ alias patch_release='rake version:bump:patch release'
 alias minor_release='rake version:bump:minor release'
 alias major_release='rake version:bump:major release'
 
+
+source /Users/dkastner/gemtools/lib/gemtools
