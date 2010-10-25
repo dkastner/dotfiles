@@ -33,6 +33,10 @@ set shiftwidth=2
 set expandtab
 set softtabstop=2
 
+set cursorline
+set incsearch
+set hlsearch
+
 set clipboard=unnamed
 
 set spell
@@ -64,6 +68,8 @@ map <Leader>. :tabnext<CR>
 map <Leader>, :tabprev<CR>
 map \] :s/^/#/<CR>
 map \[ :s/^#//<CR>
+map <Leader>c c/[A-Z_-]<CR>
+map <Leader>d d/[A-Z_-]<CR>
 
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -72,3 +78,17 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
+
+
+
+function! s:Project(dir)
+  chdir a:dir
+  e a:dir
+  1
+endfunction
+command! -complete=file -nargs=+ Project call s:Project(<q-args>)
+
+
+" abbreviations
+ab desc describe 'foo' do<CR>it 'should bar' do<CR><CR>end<CR>end<ESC>?foo<CR>vt'
+ab def def method<CR><CR>end<ESC>?method<CR>ce
