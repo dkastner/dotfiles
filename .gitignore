@@ -1,11 +1,14 @@
 *.swp
 *.swo
-*.gem
 .DS_Store
 *.rbc
 .bundle
 .sqlite3.db
 .netrwhist
+
+*.sed
+
+pkg
 
 .CFUserTextEncoding
 .bash_history
