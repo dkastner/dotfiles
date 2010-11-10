@@ -1,7 +1,12 @@
 PATH=~/bin:$PATH
 
 # rvm-install added line:
-if [[ -s /Users/dkastner/.rvm/scripts/rvm ]] ; then source /Users/dkastner/.rvm/scripts/rvm ; fi
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
+  source $HOME/.rvm/scripts/rvm ;
+  PATH=$PATH:$HOME/.rvm/bin ;
+fi
+
+PATH=$PATH:$HOME/bin
 
 export HISTCONTROL=ignoreboth
 shopt -s histappend
@@ -122,4 +127,4 @@ alias minor_release='rake version:bump:minor release'
 alias major_release='rake version:bump:major release'
 
 
-source /Users/dkastner/gemtools/lib/gemtools
+source $HOME/gemtools/lib/gemtools
