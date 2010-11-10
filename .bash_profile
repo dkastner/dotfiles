@@ -18,6 +18,10 @@ export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin
 # git
 #####
 
+function gits () {
+  git status
+}
+
 function gpr () {
   remote=${1:-"origin"}
   branch=${2:-"master"}
