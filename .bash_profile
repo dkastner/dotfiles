@@ -112,6 +112,15 @@ function emitters() {
   fi
 }
 
+function project() {
+  gvim .
+  tig
+}
+
+
+function msuwirelesslogin() {
+  curl -X POST "https://guestlogin1.wireless.msu.edu/index.pl" -d "username=webguestuser" -d "password=netguestpass"
+}
 
 # aliases
 
