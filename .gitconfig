@@ -3,3 +3,7 @@
 	name = Derek Kastner
 [core]
 	excludesfile = /Users/dkastner/.gitignore
+	autocrlf = input
+	editor = /usr/bin/vim
+[github]
+	user = dkastner

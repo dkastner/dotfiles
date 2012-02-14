@@ -1,6 +1,5 @@
-set -o vi
-
 # rvm-install added line:
-if [[ -s /Users/dkastner/.rvm/scripts/rvm ]] ; then source /Users/dkastner/.rvm/scripts/rvm ; fi
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+source $HOME/.bash_profile
 
-PATH=$PATH:/usr/local/mysql/bin
+PATH=$PATH:/usr/local/mysql/bin:/opt/local/bin
