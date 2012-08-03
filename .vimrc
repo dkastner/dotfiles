@@ -14,6 +14,7 @@ au BufNewFile,BufRead *.coffee set ft=coffee
 au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead Cakefile set ft=coffee
 au BufNewFile,BufRead Nakefile set ft=javascript
+au BufNewFile,BufRead *.hbs set ft=html
 augroup markdown
   au! BufRead,BufNewFile *.mkd  setfiletype mkd
   au! BufRead,BufNewFile *.md  setfiletype mkd
