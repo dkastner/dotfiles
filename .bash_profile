@@ -7,7 +7,7 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 export PROMPT_COMMAND='history -a'
 export HISTIGNORE="sudoh"
-export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:./bin:/Library/PostgreSQL/9.1/bin:/usr/local/share/npm/bin
+export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:./bin:/usr/local/share/npm/bin
 export JRUBY_OPTS="--1.9"
 #export GEM_REPO=http://localhost:8808
 export data1=data.brighterplanet.com
