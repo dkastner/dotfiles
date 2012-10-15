@@ -1,5 +1,6 @@
 # rvm-install added line:
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
-source $HOME/.bash_profile
+if [[ -s /Users/dkastner/.rvm/scripts/rvm ]] ; then source /Users/dkastner/.rvm/scripts/rvm ; fi
 
 PATH=$PATH:/usr/local/mysql/bin:/opt/local/bin
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

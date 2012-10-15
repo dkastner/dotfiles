@@ -1,26 +1,21 @@
-PATH=~/bin:$PATH
+PATH=~/bin:~/node_modules/.bin:$PATH
 
 # rvm-install added line:
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
-  source $HOME/.rvm/scripts/rvm ;
-  PATH=$PATH:$HOME/.rvm/bin ;
-fi
-
-PATH=$PATH:$HOME/bin
+if [[ -s /Users/dkastner/.rvm/scripts/rvm ]] ; then source /Users/dkastner/.rvm/scripts/rvm ; fi
 
 export HISTCONTROL=ignoreboth
 shopt -s histappend
 export PROMPT_COMMAND='history -a'
 export HISTIGNORE="sudoh"
-export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin
+export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:./bin:/Library/PostgreSQL/9.1/bin:/usr/local/share/npm/bin
+export JRUBY_OPTS="--1.9"
 #export GEM_REPO=http://localhost:8808
+export data1=data.brighterplanet.com
+export cm1=impact.brighterplanet.com
+export stats=stats.brighterplanet.com
 
 # git
 #####
-
-function gits () {
-  git status
-}
 
 function gpr () {
   remote=${1:-"origin"}
@@ -30,6 +25,21 @@ function gpr () {
 
 function gpo () {
   git push origin $1
+}
+
+function github() {
+  if [ "$2" == "" ]
+  then
+    open "http://github.com/$1"
+  elif [ "$3" == "" ]
+  then
+    open "http://github.com/$1/$2"
+  elif [ "$4" == "" ]
+  then
+    open "http://github.com/$1/$2/tree/master/$3"
+  else
+    open "http://github.com/$1/$2/tree/$3/$4"
+  fi
 }
 
 
@@ -112,15 +122,6 @@ function emitters() {
   fi
 }
 
-function project() {
-  gvim .
-  tig
-}
-
-
-function msuwirelesslogin() {
-  curl -X POST "https://guestlogin1.wireless.msu.edu/index.pl" -d "username=webguestuser" -d "password=netguestpass"
-}
 
 # aliases
 
@@ -128,7 +129,9 @@ function msuwirelesslogin() {
 alias grcontinue='git rebase --continue'
 alias grskip='git rebase --skip'
 alias gpom='git push origin master'
+alias gpum='git push upstream master'
 alias gphm='git push heroku master'
+alias gpor='git fetch origin; git reset --hard origin/master'
 
 ## ruby
 alias cuke='cucumber --tags @dev'
@@ -139,5 +142,20 @@ alias patch_release='rake version:bump:patch release'
 alias minor_release='rake version:bump:minor release'
 alias major_release='rake version:bump:major release'
 
+alias chrome='open -a "Google Chrome"'
+alias preview='open -a Preview'
 
-source $HOME/gemtools/lib/gemtools
+
+source /Users/dkastner/gemtools/lib/gemtools
+
+##
+# Your previous /Users/dkastner/.bash_profile file was backed up as /Users/dkastner/.bash_profile.macports-saved_2011-06-08_at_12:27:42
+##
+
+# MacPorts Installer addition on 2011-06-08_at_12:27:42: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+export EDITOR=/usr/bin/vim

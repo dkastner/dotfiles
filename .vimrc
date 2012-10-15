@@ -1,6 +1,8 @@
 syntax on
 filetype plugin indent on
 colorscheme darkblue
+set textwidth=80
+set colorcolumn=+1
 
 set noswapfile
 
@@ -14,6 +16,7 @@ au BufNewFile,BufRead *.coffee set ft=coffee
 au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead Cakefile set ft=coffee
 au BufNewFile,BufRead Nakefile set ft=javascript
+au BufNewFile,BufRead *.hbs set ft=html
 augroup markdown
   au! BufRead,BufNewFile *.mkd  setfiletype mkd
   au! BufRead,BufNewFile *.md  setfiletype mkd
@@ -103,11 +106,12 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
-
-
 function! s:Project(dir)
   chdir a:dir
   e a:dir
   1
 endfunction
 command! -complete=file -nargs=+ Project call s:Project(<q-args>)
+
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
