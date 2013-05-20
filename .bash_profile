@@ -10,9 +10,6 @@ export HISTIGNORE="sudoh"
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:./bin:/usr/local/share/npm/bin
 export JRUBY_OPTS="--1.9"
 #export GEM_REPO=http://localhost:8808
-export data1=data.brighterplanet.com
-export cm1=impact.brighterplanet.com
-export stats=stats.brighterplanet.com
 
 # git
 #####
@@ -144,13 +141,6 @@ alias major_release='rake version:bump:major release'
 
 alias chrome='open -a "Google Chrome"'
 alias preview='open -a Preview'
-
-
-source /Users/dkastner/gemtools/lib/gemtools
-
-##
-# Your previous /Users/dkastner/.bash_profile file was backed up as /Users/dkastner/.bash_profile.macports-saved_2011-06-08_at_12:27:42
-##
 
 # MacPorts Installer addition on 2011-06-08_at_12:27:42: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
