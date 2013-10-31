@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/dkastner/data1/app/controllers'
-let g:netrw_dirhist_2='/Users/dkastner/data1/deploy'
-let g:netrw_dirhist_3='/Users/dkastner/bueller/lib/bueller/generator'
-let g:netrw_dirhist_4='/Users/dkastner/bp'
-let g:netrw_dirhist_5='/Users/dkastner/graphiti'
-let g:netrw_dirhist_6='/Users/dkastner/umarket1'
