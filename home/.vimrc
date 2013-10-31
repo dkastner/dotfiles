@@ -1,6 +1,7 @@
 syntax on
 filetype plugin indent on
-colorscheme darkblue
+set background=dark
+colorscheme solarized
 set textwidth=80
 set colorcolumn=+1
 
