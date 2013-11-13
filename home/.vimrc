@@ -1,7 +1,10 @@
 syntax on
 filetype plugin indent on
+
+set t_Co=256
 set background=dark
 colorscheme solarized
+
 set textwidth=80
 set colorcolumn=+1
 
@@ -28,6 +31,8 @@ runtime! autoload/pathogen.vim
 if exists("g:loaded_pathogen")
   call pathogen#runtime_append_all_bundles()
 end
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 if (has('gui_running'))
   colorscheme darkblue 
