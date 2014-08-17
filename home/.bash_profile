@@ -1,15 +1,7 @@
 PATH=~/bin:~/node_modules/.bin:$PATH
 
-# rvm-install added line:
-if [[ -s /Users/dkastner/.rvm/scripts/rvm ]] ; then source /Users/dkastner/.rvm/scripts/rvm ; fi
-
-export HISTCONTROL=ignoreboth
-shopt -s histappend
-export PROMPT_COMMAND='history -a'
-export HISTIGNORE="sudoh"
-export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:./bin:/usr/local/share/npm/bin
+export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/share/npm/bin
 export JRUBY_OPTS="--1.9"
-#export GEM_REPO=http://localhost:8808
 
 # git
 #####
@@ -150,7 +142,7 @@ alias ls='ls --color=auto'
 alias tmux='tmux -2'
 alias ack='ack-grep'
 
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+#[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 export EDITOR=/usr/bin/vim
 export PATH="$HOME/.rbenv/bin:$PATH"
