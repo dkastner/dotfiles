@@ -1,3 +1,5 @@
 --type-add=ruby=.feature
 --type-add=ruby=Gemfile
 --type-add=ruby=.gemspec
+--ignore-dir=log
+--ignore-dir=db
