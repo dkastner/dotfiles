@@ -152,3 +152,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 eval `dircolors $HOME/.dircolors`
+
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+
+source $HOME/.homesick/repos/homeshick/homeshick.sh
