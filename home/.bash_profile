@@ -2,6 +2,9 @@ PATH=~/bin:~/node_modules/.bin:$PATH
 
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/share/npm/bin
 export JRUBY_OPTS="--1.9"
+export SPRINTER_REPOS=~/.sprinter-repos
+export GH_USERNAME=dkastner
+export GH_PASSWORD=bdfd0e11ee27473f1ad1f3e6e415c4a973805989
 
 # git
 #####
@@ -51,12 +54,6 @@ function generate_migration() {
 
 # misc
 ######
-
-function sudoh() {
-  hist_item=`tail -n 1 ~/.bash_history` 
-  echo "SUDO $hist_item"
-  echo $hist_item | xargs sudo
-}
 
 function delline () {
 echo $1
@@ -115,6 +112,18 @@ if xmodmap 2>/dev/null >/dev/null; then
   xmodmap ~/.xmodmap 2>/dev/null >/dev/null
 fi
 
+# Sprinter
+
+function sprinterTodo() {
+ sprinter listIssues --milestone=$1 --assignee=${GH_USERNAME}
+}
+alias todo=sprinterTodo
+function sprinterIssues() {
+  sprinter listIssues --milestone=$1
+}
+alias ms=sprinterIssues
+
+
 # aliases
 
 ## git
@@ -126,14 +135,6 @@ alias gphm='git push heroku master'
 alias gpor='git fetch origin; git reset --hard origin/master'
 
 ## ruby
-alias cuke='cucumber --tags @dev'
-alias gemdir='gem env gemdir'
-alias rakedb='rake db:migrate; rake db:migrate RAILS_ENV=test'
-
-alias patch_release='rake version:bump:patch release'
-alias minor_release='rake version:bump:minor release'
-alias major_release='rake version:bump:major release'
-
 alias chrome='open -a "Google Chrome"'
 alias preview='open -a Preview'
 
@@ -141,19 +142,21 @@ alias preview='open -a Preview'
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-alias ls='ls --color=auto'
 alias tmux='tmux -2'
-alias ack='ack-grep'
-
-#[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+alias ack='ag'
 
 export EDITOR=/usr/bin/vim
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-eval `dircolors $HOME/.dircolors`
-
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
 source $HOME/.homesick/repos/homeshick/homeshick.sh
+
+if which dircolors; then
+  eval `dircolors $HOME/.dircolors`
+  alias ls='ls --color=auto'
+else
+  export CLICOLOR=1
+fi
