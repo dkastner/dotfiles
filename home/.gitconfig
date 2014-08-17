@@ -7,3 +7,5 @@
 	editor = /usr/bin/vim
 [github]
 	user = dkastner
+[push]
+	default = current
