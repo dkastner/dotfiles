@@ -63,12 +63,6 @@ function generate_migration() {
 # misc
 ######
 
-function sudoh() {
-  hist_item=`tail -n 1 ~/.bash_history` 
-  echo "SUDO $hist_item"
-  echo $hist_item | xargs sudo
-}
-
 function delline () {
 echo $1
 echo $2
@@ -146,14 +140,6 @@ alias gphm='git push heroku master'
 alias gpor='git fetch origin; git reset --hard origin/master'
 
 ## ruby
-alias cuke='cucumber --tags @dev'
-alias gemdir='gem env gemdir'
-alias rakedb='rake db:migrate; rake db:migrate RAILS_ENV=test'
-
-alias patch_release='rake version:bump:patch release'
-alias minor_release='rake version:bump:minor release'
-alias major_release='rake version:bump:major release'
-
 alias chrome='open -a "Google Chrome"'
 alias preview='open -a Preview'
 
@@ -163,9 +149,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 alias ls='ls --color=auto'
 alias tmux='tmux -2'
-alias ack='ack-grep'
-
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+alias ack='ag'
 
 export EDITOR=/usr/bin/vim
 export PATH="$HOME/.rbenv/bin:$PATH"
