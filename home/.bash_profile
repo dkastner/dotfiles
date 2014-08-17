@@ -111,6 +111,9 @@ function emitters() {
   fi
 }
 
+if xmodmap 2>/dev/null >/dev/null; then
+  xmodmap ~/.xmodmap 2>/dev/null >/dev/null
+fi
 
 # aliases
 
