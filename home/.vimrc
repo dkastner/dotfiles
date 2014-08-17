@@ -109,6 +109,9 @@ map <Leader>h :call system('touch ' . bufname("%"))<CR>
 "plugged in shortcuts
 map <Leader>pj <Esc>:%!json_xs -f json_xs -f json -t json-pretty<CR>
 
+let g:agprg="/usr/bin/ag --column"
+noremap <Leader>a :Ag <cword><CR>
+
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
