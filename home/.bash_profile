@@ -9,6 +9,9 @@ export PROMPT_COMMAND='history -a'
 export HISTIGNORE="sudoh"
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:./bin:/usr/local/share/npm/bin
 export JRUBY_OPTS="--1.9"
+export SPRINTER_REPOS=~/.sprinter-repos
+export GH_USERNAME=dkastner
+export GH_PASSWORD=bdfd0e11ee27473f1ad1f3e6e415c4a973805989
 #export GEM_REPO=http://localhost:8808
 
 # git
@@ -118,6 +121,18 @@ function emitters() {
     done
   fi
 }
+
+
+# Sprinter
+
+function sprinterTodo() {
+ sprinter listIssues --milestone=$1 --assignee=${GH_USERNAME}
+}
+alias todo=sprinterTodo
+function sprinterIssues() {
+  sprinter listIssues --milestone=$1
+}
+alias ms=sprinterIssues
 
 
 # aliases
