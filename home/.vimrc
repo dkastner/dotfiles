@@ -27,6 +27,11 @@ augroup markdown
   au! BufRead,BufNewFile *.markdown  setfiletype mkd
 augroup END
 
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 runtime! autoload/pathogen.vim
 if exists("g:loaded_pathogen")
   call pathogen#runtime_append_all_bundles()
