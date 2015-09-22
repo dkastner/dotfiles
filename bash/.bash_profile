@@ -2,9 +2,7 @@ PATH=~/bin:~/node_modules/.bin:$PATH
 
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/share/npm/bin
 export JRUBY_OPTS="--1.9"
-export SPRINTER_REPOS=~/.sprinter-repos
 export GH_USERNAME=dkastner
-export GH_PASSWORD=bdfd0e11ee27473f1ad1f3e6e415c4a973805989
 
 # git
 #####
@@ -34,13 +32,6 @@ function github() {
   fi
 }
 
-
-# ruby
-######
-
-function geminstall () {
-  gem install $1 --no-rdoc --no-ri
-}
 
 # rails
 #######
@@ -89,40 +80,9 @@ function clean() {
   find . -name *.$ext | xargs rm -f
 }
 
-function emitters() {
-  cmd=$1
-  # emitters=(automobile bus_trip diet flight fuel_purchase motorcycle pet rail_trip purchase rail_trip residence)
-  emitters=( diet flight fuel_purchase motorcycle pet rail_trip purchase rail_trip residence )
-    
-  if [ "$1" == "release" ]
-  then
-    msg=$2
-    for emitter in ${emitters[@]}
-    do
-      echo "Processing $emitter"
-      cd "/Users/dkastner/$emitter"
-      rake gemspec
-      git commit -am $cmd
-      patch_release
-    done
-  fi
-}
-
-if xmodmap 2>/dev/null >/dev/null; then
+if xmodmap 2>/dev/null > /dev/null; then
   xmodmap ~/.xmodmap 2>/dev/null >/dev/null
 fi
-
-# Sprinter
-
-function sprinterTodo() {
- sprinter listIssues --milestone=$1 --assignee=${GH_USERNAME}
-}
-alias todo=sprinterTodo
-function sprinterIssues() {
-  sprinter listIssues --milestone=$1
-}
-alias ms=sprinterIssues
-
 
 # aliases
 
@@ -145,16 +105,18 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 alias tmux='tmux -2'
 alias ack='ag'
 
-export EDITOR=/usr/bin/vim
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [ -f $HOME/.rbenv/bin/rbenv ]; then
+  export EDITOR=/usr/bin/vim
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+if [ -f $HOME/.nodenv/bin/nodenv ]; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
+fi
 
-source $HOME/.homesick/repos/homeshick/homeshick.sh
-
-if which dircolors; then
+if dircolors 2>/dev/null >/dev/null; then
   eval `dircolors $HOME/.dircolors`
   alias ls='ls --color=auto'
 else
