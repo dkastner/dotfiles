@@ -1,7 +1,7 @@
 syntax on
 filetype plugin indent on
 
-set t_Co=256
+set t_Co=16
 set background=dark
 colorscheme solarized
 
@@ -63,8 +63,6 @@ set incsearch
 set hlsearch
 
 set clipboard=unnamed
-
-set spell
 
 set wildignore=*.sed
 
