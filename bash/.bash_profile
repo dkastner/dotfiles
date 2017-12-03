@@ -1,8 +1,14 @@
 PATH=~/bin:~/node_modules/.bin:$PATH
 
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/share/npm/bin
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
 export JRUBY_OPTS="--1.9"
 export GH_USERNAME=dkastner
+
+if [ -f ~/.vault-token ]; then
+  export VAULT_MASTER_TOKEN=$(cat ~/.vault-token)
+fi
 
 # git
 #####
@@ -116,9 +122,14 @@ if [ -f $HOME/.nodenv/bin/nodenv ]; then
   eval "$(nodenv init -)"
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
 if dircolors 2>/dev/null >/dev/null; then
   eval `dircolors $HOME/.dircolors`
   alias ls='ls --color=auto'
 else
   export CLICOLOR=1
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
