@@ -1,5 +1,7 @@
 PATH=~/bin:~/node_modules/.bin:$PATH
 
+# fuck you OS X
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/share/npm/bin
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
